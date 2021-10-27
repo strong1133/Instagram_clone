@@ -1,6 +1,8 @@
 const express = require("express")
 const path = require("path")
 
+const { Connection, ConnectionEnd } = require('./config/dbCon');
+
 // express server 선언
 const app = express();
 const port = 3000;
@@ -21,8 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 const router = require("./routes/index");
 app.use(router);
 
-const Connection = require('./config/dbCon');
 Connection();
+ConnectionEnd();
 
 app.listen(port, function(){
     console.log("서버 포트는 "+ port)
