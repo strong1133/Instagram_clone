@@ -1,4 +1,5 @@
 const errorDto = (res, err) => {
+    
     let ts = new Date();
     let code = !res ? err.code : res.status
     let message = err.message
