@@ -1,6 +1,5 @@
 const express = require("express")
 const path = require("path")
-
 const { Connection, ConnectionEnd } = require('./config/dbCon');
 
 // express server 선언
