@@ -9,5 +9,17 @@ const createUser = `
     );
 `
 
+const SelectAllUser = `
+    SELECT USER_ID, USERNAME, NAME, TIMESTAMPED TOTAL_COUNT FROM USER;
+`
 
-module.exports = {createUser} 
+const Register = (userName, password, name) =>{
+    let ts = new Date()
+    return `
+    INSERT INTO USER (USERNAME, PASSWORD, NAME, TIMESTAMPED) VALUES
+    (${userName}, ${password}, ${name}, ${ts});
+`
+} 
+
+
+module.exports = {createUser, SelectAllUser, Register} 
