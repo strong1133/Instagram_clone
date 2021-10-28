@@ -11,3 +11,13 @@ exports.register = async (req, res)=>{
         errorDto(res, err)
     }
 }
+
+exports.getUser = async (req, res)=>{
+    console.log("== GET USER ==")
+    try{
+        let users = await user.getUser();
+        responseDto(res, 200, users)
+    }catch(err){
+        errorDto(res, err)
+    }
+}

@@ -23,7 +23,7 @@ const router = require("./routes/index");
 app.use(router);
 
 Connection();
-ConnectionEnd();
+// ConnectionEnd();
 
 app.listen(port, function(){
     console.log("서버 포트는 "+ port)

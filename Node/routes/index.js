@@ -10,5 +10,6 @@ router.get('/login', viewController.login);
 router.get('/signup', viewController.signup);
 
 router.post('/register', userController.register);
+router.get('/user', userController.getUser);
 
 module.exports = router;

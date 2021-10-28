@@ -6,8 +6,8 @@ const {createUser} = require('../model/query')
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'strong1133',
-    password: 'djaak455',
-    database: 'SEOKBLOG'
+    password: '1234',
+    database: 'test01'
 });
 
 // DB 접속
@@ -20,13 +20,18 @@ const Connection = async (res) =>{
 
 // 쿼리 실행
 const ExcuteQuery = async(req, res) =>{
-    conn.query(req, function (err) {
-        if (err){
-            throw new Error(err);
-        }
-        console.log('쿼리 수행');
-        return;
-    });
+    try{
+        return await conn.query(req)
+    }catch(err){
+        return errorDto(res, err)
+    }
+    // return await conn.query(req, function(err){
+    //     if(err) {
+    //         errorDto(res, err)
+    //         console.log("에러")
+    //         return "ERROR";
+    //     }
+    // })
 }
 
 // DB 접속 종료
