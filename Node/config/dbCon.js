@@ -20,18 +20,19 @@ const Connection = async (res) =>{
 
 // 쿼리 실행
 const ExcuteQuery = async(req, res) =>{
-    try{
-        return await conn.query(req)
-    }catch(err){
-        return errorDto(res, err)
+    let data = {
+        id: 2, username: "daisy"
     }
-    // return await conn.query(req, function(err){
-    //     if(err) {
-    //         errorDto(res, err)
-    //         console.log("에러")
-    //         return "ERROR";
-    //     }
-    // })
+    
+    await conn.query(req, (err, result) =>{
+        let jsonData = JSON.stringify(result)
+        console.log(jsonData)
+        jsonData;
+       
+    })
+    return jsonData;
+  
+ 
 }
 
 // DB 접속 종료

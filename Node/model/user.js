@@ -8,7 +8,9 @@ const register = async(req, res, err) =>{
         throw new Error(err);
     }
     let query = Register(req.userName , req.password, req.name)
-    await ExcuteQuery(query)
+    await ExcuteQuery(query, (err, result) =>{
+        console.log(result.insertId)
+    })
     console.log();
  
 }
@@ -19,8 +21,11 @@ const getUser = async(req, res, err) =>{
         throw new Error(err);
     }
     let query = SelectAllUser;
-    let result = await ExcuteQuery(query)
-    // console.log(result);
+    
+    let data = await ExcuteQuery(query);
+    console.log(data)
+    return data
+    
  
 }
 

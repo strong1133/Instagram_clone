@@ -15,7 +15,7 @@ exports.register = async (req, res)=>{
 exports.getUser = async (req, res)=>{
     console.log("== GET USER ==")
     try{
-        let users = await user.getUser();
+        let users = await user.getUser(req, res);
         responseDto(res, 200, users)
     }catch(err){
         errorDto(res, err)
