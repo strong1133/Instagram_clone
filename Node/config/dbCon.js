@@ -21,7 +21,7 @@ const Connection = async (res) =>{
 // 쿼리 실행
 const ExcuteQuery = (req, res) =>{
     return new Promise((resolve, reject)=>{
-        conn.query("reqss", (err, row)=>{
+        conn.query(req, (err, row)=>{
             if (err){
                 console.log("에러발생!")
                 resolve(err)

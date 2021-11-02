@@ -19,7 +19,8 @@ const register = async(req, res, err) =>{
 const getUser = async(req, res, err) =>{
     let query = SelectAllUser;
     let data = await ExcuteQuery(query);
-    if (data=== Error){
+
+    if (!data.errno){
         console.log(data)
         return data;
     }else{
