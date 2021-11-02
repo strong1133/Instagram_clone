@@ -4,12 +4,13 @@ const errorDto = (res, err) => {
     let message = err.message
     let data ={}
     console.error({'TimeStamped': ts, 'status': code, 'msg': message, 'result': data})
+
+    errorResponseDto(res, 500, message)
 }
 
 
 const errorResponseDto = (res, code, errMsg) =>{
     let ts= new Date()
-    console.log(res)
     res.status(code).json({
         TimeStamped: ts,
         status: code, 

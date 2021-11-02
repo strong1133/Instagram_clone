@@ -17,14 +17,15 @@ const register = async(req, res, err) =>{
 
 //GET USER
 const getUser = async(req, res, err) =>{
-    if(err){
-        throw new Error(err);
-    }
     let query = SelectAllUser;
-    
     let data = await ExcuteQuery(query);
-    console.log(data)
-    return data
+    if (data=== Error){
+        console.log(data)
+        return data;
+    }else{
+        throw new Error(data)
+    }
+    
     
  
 }

@@ -17,7 +17,7 @@ exports.getUser = async (req, res)=>{
     try{
         let users = await user.getUser(req, res);
         responseDto(res, 200, users)
-    }catch(err){
-        errorDto(res, err)
+    }catch(Error){
+        errorDto(res, Error)
     }
 }
