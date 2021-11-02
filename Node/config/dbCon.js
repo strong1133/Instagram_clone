@@ -19,18 +19,29 @@ const Connection = async (res) =>{
 }
 
 // 쿼리 실행
-const ExcuteQuery = async(req, res) =>{
-    let data = {
-        id: 2, username: "daisy"
-    }
-    
-    await conn.query(req, (err, result) =>{
-        let jsonData = JSON.stringify(result)
-        console.log(jsonData)
-        jsonData;
-       
+const ExcuteQuery = (req, res) =>{
+    return new Promise((resolve, reject)=>{
+        conn.query(req, (err, row)=>{
+            if (err){
+                console.log("에러발생!")
+                reject(err)
+            }else{
+                console.log("조회성공")
+                resolve(row);
+            }
+        })
     })
-    return jsonData;
+    // let data = {
+    //     id: 2, username: "daisy"
+    // }
+    
+    // await conn.query(req, (err, result) =>{
+    //     let jsonData = JSON.stringify(result)
+    //     console.log(jsonData)
+    //     jsonData;
+       
+    // })
+    // return jsonData;
   
  
 }
