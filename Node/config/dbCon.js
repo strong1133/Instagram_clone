@@ -6,8 +6,10 @@ const {createUser} = require('../model/query')
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'strong1133',
-    password: 'djaak455',
-    database: 'seokblog'
+    // password: 'djaak455',
+    // database: 'seokblog'
+    password: '1234',
+    database: 'test01'
 });
 
 // DB 접속

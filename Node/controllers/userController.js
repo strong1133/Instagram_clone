@@ -1,11 +1,15 @@
 const { responseDto ,errorDto }  = require('../utils/responseDto');
 const user = require('../model/user');
+const {createHashedPassword} = require('../config/encription')
 
 //USER POST
 exports.register = async (req, res)=>{
     console.log("== Register ==")
     try{
-        let register = await user.register(req.body);
+        const {password, salt} = await createHashedPassword(req.body.password)
+        console.log("password : ", password)
+        console.log("salt : ", salt)
+        // let register = await user.register(req.body);
         responseDto(res, 200, register)
     }catch(err){
         errorDto(res, err)
